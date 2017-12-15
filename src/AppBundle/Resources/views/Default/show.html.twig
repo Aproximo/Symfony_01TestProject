@@ -1,0 +1,23 @@
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% block body %}
+    <div style="display: inline">
+<h1 style="display: inherit; margin-right: 20px;">{{ user.name }}</h1>
+        <a href="{{ path('user_edit', {id: user.id}) }}">Edit user</a>
+    </div>
+    <h3 style="margin-left: 25px">Accounts</h3>
+    {% for account in user.accounts %}
+        <ul style="margin-left: 35px">
+            <li>
+                <span>№ {{ account.account}} from {{ account.dateAdded }}</span>
+            </li>
+        </ul>
+
+
+        {% endfor %}
+    <a href="{{ path('accounts_add', {id: user.id}) }}">Add new account</a>
+{% endblock %}
+
+{% block title %}
+   ARTICLE
+{% endblock %}

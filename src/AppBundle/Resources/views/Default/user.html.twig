@@ -1,0 +1,60 @@
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% block title %}
+   ARTICLEs
+{% endblock %}
+
+
+
+{% block body %}
+    <div style="display: inline">
+<h1 style="display: inherit; margin-right: 20px;">Articles list</h1>
+        <a href="{{ path('user_add') }}">Add new user</a>
+    </div>
+    <hr>
+    <table>
+    <thead>
+    <tr>
+        <td>
+            Name
+        </td>
+        <td>
+            Email
+        </td>
+        <td>
+            Address
+        </td>
+        <td>
+            accounts
+        </td>
+        <td>
+            Date added
+        </td>
+    </tr>
+    </thead>
+
+    {% for user in users %}
+        <tr>
+            <td>
+                <a href="{{ path('user_page', {id: user.id}) }}">{{ user.name }}</a>
+            </td>
+            <td>
+               {{ user.email }}
+            </td>
+            <td>
+                {{ user.address }}
+            </td>
+            <td>
+                {{ user.accounts|length }}
+            </td>
+            <td>
+                {{  user.dateAdded }}
+            </td>
+        </tr>
+
+
+    {% endfor %}
+    </table>
+
+{% endblock %}
+
